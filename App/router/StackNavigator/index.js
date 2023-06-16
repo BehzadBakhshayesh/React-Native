@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { isAuth } from '../../tools/isAuth';
-import HomeScreen from '../../screens/HomeScreen';
+import SignInScreen from '../../screens/SignInScreen';
 import TabNavigator from '../TabNavigator';
 
 
@@ -10,8 +10,12 @@ const StackNavigator = () => {
     <Stack.Navigator>
       {
         !isAuth() ?
-          <><Stack.Screen name="Home" component={TabNavigator} /></> :
-          <><Stack.Screen name="Home" component={HomeScreen} /></>
+          <>
+            <Stack.Screen name="Home" component={TabNavigator} />
+          </> :
+          <>
+            <Stack.Screen name="Home" component={SignInScreen} />
+          </>
       }
     </Stack.Navigator>
   );

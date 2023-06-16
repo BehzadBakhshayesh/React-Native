@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Button, TextInput, View } from 'react-native';
 
 function SignInScreen() {
