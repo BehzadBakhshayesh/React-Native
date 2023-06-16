@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button, TextInput, View } from 'react-native';
 
 function SignInScreen() {
@@ -13,7 +14,7 @@ function SignInScreen() {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <Button title="Sign in" onPress={() => {}} />
+      <Button title="Sign in" onPress={() => { }} />
     </View>
   );
 }
