@@ -12,6 +12,7 @@ const StackNavigator = () => {
         !isAuth() ?
           <>
             <Stack.Screen name="Home" component={TabNavigator} />
+            {/* <Stack.Screen name="Direct" component={DirectScreen} /> */}
           </> :
           <>
             <Stack.Screen name="Home" component={SignInScreen} />
