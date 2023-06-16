@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, TextInput, View } from 'react-native/types';
+import { Button, TextInput, View } from 'react-native';
 
 function SignInScreen() {
   const [username, setUsername] = React.useState('');

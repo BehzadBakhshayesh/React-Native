@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
-import { Text, View } from 'react-native/types';
+import { Text, View } from 'react-native';
 
 function HomeScreen() {
   const Tab = createBottomTabNavigator();
