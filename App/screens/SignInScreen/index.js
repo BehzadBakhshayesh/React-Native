@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, TextInput, View } from 'react-native';
+import { Button, TextInput, View, StyleSheet } from 'react-native';
 
 
 
@@ -9,7 +9,7 @@ function SignInScreen() {
   const [password, setPassword] = React.useState('');
 
   return (
-    <View>
+    <View style={styles?.wrapper}>
       <TextInput placeholder="Username" value={username} onChangeText={setUsername} />
       <TextInput
         placeholder="Password"
@@ -22,3 +22,18 @@ function SignInScreen() {
   );
 }
 export default SignInScreen;
+
+
+const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  input: {
+
+  },
+  btton: {
+
+  },
+})
