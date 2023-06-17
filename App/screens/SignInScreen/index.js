@@ -10,9 +10,14 @@ function SignInScreen() {
 
   return (
     <View style={styles?.wrapper}>
-      <TextInput placeholder="Username" value={username} onChangeText={setUsername} />
+      <TextInput
+        placeholder="Username"
+        style={styles.input}
+        value={username}
+        onChangeText={setUsername} />
       <TextInput
         placeholder="Password"
+        style={styles.input}
         value={password}
         onChangeText={setPassword}
         secureTextEntry
@@ -28,12 +33,16 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    borderWidth:5,borderColor:"#000"
   },
   input: {
-
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   },
-  btton: {
+  button: {
 
   },
 })
