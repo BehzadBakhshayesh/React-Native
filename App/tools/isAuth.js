@@ -1,3 +1,4 @@
 export const isAuth = () => {
-    return true
+    const token = getStorage({ key: "token", isJson: false })
+    return !!token
 }
