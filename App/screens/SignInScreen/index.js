@@ -1,26 +1,22 @@
-import React from 'react';
 import { Button, TextInput, View, StyleSheet } from 'react-native';
-
-
+import useField from "../../hooks/useField"
 
 
 function SignInScreen() {
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const username = useField()
+  const password = useField()
 
   return (
     <View style={styles?.wrapper}>
       <TextInput
         placeholder="Username"
         style={styles.input}
-        value={username}
-        onChangeText={setUsername} />
+        {...username} />
       <TextInput
         placeholder="Password"
         style={styles.input}
-        value={password}
-        onChangeText={setPassword}
         secureTextEntry
+        {...password}
       />
       <Button title="Sign in" onPress={() => { }} />
     </View>
@@ -34,7 +30,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    borderWidth:5,borderColor:"#000"
+    borderWidth: 5, borderColor: "#000"
   },
   input: {
     height: 40,
