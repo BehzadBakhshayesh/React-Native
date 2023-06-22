@@ -1,6 +1,6 @@
-import { getStorage } from "./storage"
+import { getStorage } from './storage';
 
-export const isAuth = () => {
-    const token = getStorage({ key: "token", isJson: false })
-    return !!token
+export async function isAuth() {
+  const token = await getStorage({ key: 'token', isJson: false });
+  return token;
 }

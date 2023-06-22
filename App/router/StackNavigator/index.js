@@ -3,29 +3,38 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TabNavigator from '@app/router/TabNavigator';
 import SignInScreen from '@app/screens/SignInScreen';
 import { isAuth } from '@app/tools/isAuth';
+import Authorization from '@app/screens/Authorization';
 
 const StackNavigator = () => {
+  const { token } = isAuth();
+  console.log({ token });
+  console.log('isAuth()', isAuth());
+
   const Stack = createNativeStackNavigator();
- const screenOptions ={
-  headerShown: false
-}
+  const screenOptions = {
+    //  headerTitle: (props) => <LogoTitle {...props} /> }
+    title: '',
+    headerStyle: {
+      backgroundColor: '#FAFAFA',
+    },
+    headerTintColor: '#262626',
+    // headerTitleStyle: {
+    //   fontWeight: 'bold',
+    // },
+  };
+
   return (
     <Stack.Navigator screenOptions={screenOptions}>
-      {
-        !isAuth() ?
-          <>
-            <Stack.Screen name="Home" component={TabNavigator} />
-            {/* <Stack.Screen name="Direct" component={DirectScreen} /> */}
-          </> :
-          <>
-            <Stack.Screen name="SignInScreen" component={SignInScreen} />
-            {/* <Stack.Screen name="LoginScreen" component={LoginScreen} /> */}
-          </>
-      }
+      {token ? (
+        <Stack.Screen name="Root" component={TabNavigator} />
+      ) : (
+        <>
+          <Stack.Screen name="Authorization" component={Authorization} />
+          <Stack.Screen name="SignInScreen" component={SignInScreen} />
+        </>
+      )}
     </Stack.Navigator>
   );
+};
 
-}
-
-export default StackNavigator
-
+export default StackNavigator;
