@@ -1,8 +1,8 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { isAuth } from '../../tools/isAuth';
-import SignInScreen from '../../screens/SignInScreen';
-import TabNavigator from '../TabNavigator';
+import TabNavigator from '@app/router/TabNavigator';
+import SignInScreen from '@app/screens/SignInScreen';
+import { isAuth } from '@app/tools/isAuth';
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
