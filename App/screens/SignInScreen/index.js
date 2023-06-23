@@ -1,6 +1,6 @@
+import React from 'react';
 import { Button, TextInput, View, StyleSheet } from 'react-native';
 import useField from "../../hooks/useField"
-
 
 function SignInScreen() {
   const username = useField()
@@ -18,7 +18,9 @@ function SignInScreen() {
         secureTextEntry
         {...password}
       />
-      <Button title="Sign in" onPress={() => { }} />
+      <Button
+        title="Sign in"
+        onPress={() => {}} />
     </View>
   );
 }

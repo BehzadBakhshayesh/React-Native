@@ -1,3 +1,4 @@
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { isAuth } from '../../tools/isAuth';
 import SignInScreen from '../../screens/SignInScreen';

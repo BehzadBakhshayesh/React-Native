@@ -1,3 +1,4 @@
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import StackNavigator from './router/StackNavigator';
 
@@ -7,6 +8,6 @@ const App = () => {
       <StackNavigator />
     </NavigationContainer>
   );
-}
+};
 
-export default App
+export default App;
