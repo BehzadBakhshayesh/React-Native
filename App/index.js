@@ -3,7 +3,7 @@ import StackNavigator from './router/StackNavigator';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { NavigationContainer } from '@react-navigation/native';
 
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
 
 const App = () => {
   return (

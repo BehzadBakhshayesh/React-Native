@@ -1,13 +1,11 @@
 import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-
 import PropTypes from 'prop-types';
 
 function Authorization({ navigation }) {
   return (
     <View style={styles?.wrapper}>
       <Text style={styles.title}>Instagram</Text>
-
       <TouchableOpacity style={styles.loginBtn} onPress={() => {}}>
         <Text style={styles.loginText}>LOGIN </Text>
       </TouchableOpacity>

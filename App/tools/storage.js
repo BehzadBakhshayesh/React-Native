@@ -20,11 +20,7 @@ export const getStorage = async ({ key, isJson }) => {
     const value = await AsyncStorage.getItem(key);
 
     if (value !== null) {
-      if (isJson) {
-        return JSON.parse(value);
-      } else {
-        return value;
-      }
+      return isJson ?JSON.parse(value):value
     }
     return null;
   } catch (e) {

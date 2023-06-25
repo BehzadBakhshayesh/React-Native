@@ -6,10 +6,6 @@ import { isAuth } from '@app/tools/isAuth';
 import Authorization from '@app/screens/Authorization';
 
 const StackNavigator = () => {
-  const { token } = isAuth();
-  console.log({ token });
-  console.log('isAuth()', isAuth());
-
   const Stack = createNativeStackNavigator();
   const screenOptions = {
     //  headerTitle: (props) => <LogoTitle {...props} /> }
@@ -25,7 +21,7 @@ const StackNavigator = () => {
 
   return (
     <Stack.Navigator screenOptions={screenOptions}>
-      {token ? (
+      {isAuth() ? (
         <Stack.Screen name="Root" component={TabNavigator} />
       ) : (
         <>
