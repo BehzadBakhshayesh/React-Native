@@ -22,7 +22,7 @@ function SignInScreen() {
       <TouchableOpacity
         style={styles.loginBtn}
         onPress={() => {
-          dispatch(login({ email, password }));
+          dispatch(login({ email: email?.value, password: password?.value }));
         }}
       >
         <Text style={styles.loginText}>LOGIN </Text>
