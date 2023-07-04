@@ -5,12 +5,9 @@ import HomeScreen2 from '@app/screens/HomeScreen2';
 
 const TabNavigator = () => {
   const Tab = createBottomTabNavigator();
-  const screenOptions = {
-    headerShown: false,
-  };
 
   return (
-    <Tab.Navigator screenOptions={screenOptions}>
+    <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Home2" component={HomeScreen2} />
     </Tab.Navigator>
