@@ -9,13 +9,11 @@ import { loginAction } from '@app/redux/actions/loginAction';
 
 const StackNavigator = () => {
   const dispatch = useDispatch();
-  const loadStorageData = async () => {
-    const token = await AsyncStorage.getItem('token');
-    dispatch(loginAction(token));
-  };
-
   useEffect(() => {
-    loadStorageData();
+    (async () => {
+      const token = await AsyncStorage.getItem('token');
+      dispatch(loginAction(token));
+    })();
   }, []);
 
   const Stack = createNativeStackNavigator();
