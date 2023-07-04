@@ -19,7 +19,7 @@ const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
   const isAuth = useSelector((state) => state?.authenticationReducer);
 
-  // if (lodaing) {
+  // if (isLoading) {
   //   return <SplashScreen />;
   // }
 
