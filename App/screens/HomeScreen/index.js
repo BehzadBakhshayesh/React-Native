@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Button, Text, View, StyleSheet } from 'react-native';
 import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { logOut } from '@app/redux/actions/AuthenticationActions';
