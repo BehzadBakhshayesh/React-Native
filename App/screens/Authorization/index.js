@@ -6,12 +6,17 @@ function Authorization({ navigation }) {
   return (
     <View style={styles?.wrapper}>
       <Text style={styles.title}>Instagram</Text>
-      <TouchableOpacity style={styles.loginBtn} onPress={() => {}}>
+      <TouchableOpacity
+        style={styles.loginBtn}
+        onPress={() => {
+          navigation.navigate('SignInScreen');
+        }}
+      >
         <Text style={styles.loginText}>LOGIN </Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('SignInScreen', { screen: 'SignInScreen' });
+          navigation.navigate('SignInScreen');
         }}
       >
         <Text style={styles.forgotText}>Swith Accounts</Text>
