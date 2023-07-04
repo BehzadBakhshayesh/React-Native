@@ -6,7 +6,6 @@ import Authorization from '@app/screens/Authorization';
 import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { loginAction } from '@app/redux/actions/AuthenticationActions';
-import SplashScreen from '@app/screens/SplashScreen';
 
 const StackNavigator = () => {
   const dispatch = useDispatch();
@@ -18,7 +17,7 @@ const StackNavigator = () => {
   }, []);
 
   const Stack = createNativeStackNavigator();
-  const isLogin = useSelector((state) => state?.authenticationReducer);
+  const isAuth = useSelector((state) => state?.authenticationReducer);
 
   // if (lodaing) {
   //   return <SplashScreen />;
@@ -26,7 +25,7 @@ const StackNavigator = () => {
 
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      {isLogin ? (
+      {isAuth ? (
         <Stack.Screen name="Root" component={TabNavigator} />
       ) : (
         <>
