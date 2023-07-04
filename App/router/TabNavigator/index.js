@@ -5,19 +5,12 @@ import HomeScreen2 from '@app/screens/HomeScreen2';
 
 const TabNavigator = () => {
   const Tab = createBottomTabNavigator();
-  return (
-    <Tab.Navigator
-    // screenOptions={({ route }) => ({
-    //   tabBarIcon: ({ color, size }) => {
-    //     const icons = {
-    //       Home: 'home',
-    //       Profile: 'account',
-    //     };
+  const screenOptions = {
+    headerShown: false,
+  };
 
-    //     return <MaterialCommunityIcons name={icons[route.name]} color={color} size={size} />;
-    //   },
-    // })}
-    >
+  return (
+    <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Home2" component={HomeScreen2} />
     </Tab.Navigator>

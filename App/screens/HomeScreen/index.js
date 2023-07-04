@@ -1,12 +1,13 @@
 import React from 'react';
 import { Button, Text, View } from 'react-native';
-// import { setStorage } from '../../tools/storage';
 import propTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { logOut } from '@app/redux/actions/loginAction';
 
-function HomeScreen({ navigation }) {
-  const logout = () => {
-    // setStorage({ value: null, key: 'token' });
-    navigation.navigate('SignInScreen', { screen: 'SignInScreen' });
+function HomeScreen() {
+  const dispatch = useDispatch();
+  const logout = async () => {
+    dispatch(logOut());
   };
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>

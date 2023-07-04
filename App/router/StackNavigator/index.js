@@ -2,26 +2,20 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TabNavigator from '@app/router/TabNavigator';
 import SignInScreen from '@app/screens/SignInScreen';
-import { isAuth } from '@app/tools/isAuth';
 import Authorization from '@app/screens/Authorization';
+import { useSelector } from 'react-redux';
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
   const screenOptions = {
-    //  headerTitle: (props) => <LogoTitle {...props} /> }
-    title: '',
-    headerStyle: {
-      backgroundColor: '#FAFAFA',
-    },
-    headerTintColor: '#262626',
-    // headerTitleStyle: {
-    //   fontWeight: 'bold',
-    // },
+    headerShown: false,
   };
+  const isLogin = useSelector((state) => state?.loginReducer);
+  console.log({ isLogin });
 
   return (
     <Stack.Navigator screenOptions={screenOptions}>
-      {isAuth() ? (
+      {isLogin ? (
         <Stack.Screen name="Root" component={TabNavigator} />
       ) : (
         <>

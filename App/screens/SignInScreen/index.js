@@ -1,46 +1,28 @@
 import React from 'react';
 import { TextInput, View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { useMutation } from 'react-query';
-import { login } from '../../service/service';
 import PropTypes from 'prop-types';
-import { setStorage } from '../../tools/storage';
+import { login } from '@app/redux/actions/loginAction';
+import { useDispatch } from 'react-redux';
+import useField from '@app/hooks/useField';
 
-function SignInScreen({ navigation }) {
-  // const { username, password } = useField();
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const mutation = useMutation(login, {
-    onSuccess: (res) => {
-      console.log('data', res.data);
-      res.status === '200' && setStorage({ value: res.data, key: 'token' });
-      navigation.navigate('Root', { screen: 'Home' });
-    },
-  });
+function SignInScreen() {
+  const dispatch = useDispatch();
+  const email = useField('charles.morris@reqres.in');
+  const password = useField();
+
   return (
     <View style={styles?.wrapper}>
       <Text style={styles.title}>Instagram</Text>
-      <TextInput
-        placeholder="Username"
-        style={styles.input}
-        onChangeText={(text) => setUsername(text)}
-      />
-      <TextInput
-        placeholder="Password"
-        style={styles.input}
-        secureTextEntry
-        onChangeText={(text) => setPassword(text)}
-      />
 
+      <TextInput placeholder="Username" style={styles.input} {...email} />
+      <TextInput placeholder="Password" style={styles.input} {...password} secureTextEntry />
       <TouchableOpacity>
         <Text style={styles.forgotText}>Forgot Password?</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.loginBtn}
         onPress={() => {
-          mutation.mutate({
-            username,
-            password,
-          });
+          dispatch(login({ email, password }));
         }}
       >
         <Text style={styles.loginText}>LOGIN </Text>
