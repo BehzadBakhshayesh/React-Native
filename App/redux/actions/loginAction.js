@@ -1,13 +1,10 @@
 import { fetchClient } from '@app/service/fetchClient';
 import { setStorage } from '@app/tools/storage';
 
-export const loginAction = (payload) => {
-  console.log({ payload });
-  return {
-    type: 'IS_LOGIN',
-    payload,
-  };
-};
+export const loginAction = (payload) => ({
+  type: 'IS_LOGIN',
+  payload,
+});
 export const logOut = () => ({
   type: 'LOGOUT',
 });
