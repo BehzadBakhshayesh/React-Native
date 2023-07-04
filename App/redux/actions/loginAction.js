@@ -1,4 +1,5 @@
 import { fetchClient } from '@app/service/fetchClient';
+import { setStorage } from '@app/tools/storage';
 
 export const loginAction = (payload) => {
   console.log({ payload });
@@ -20,9 +21,11 @@ export const login = (data) => {
     })
       .then((res) => {
         dispatch(loginAction(res?.data?.token));
+        setStorage({ key: 'token', value: res?.data?.token });
       })
       .catch(() => {
         dispatch(logOut());
-      });
+      })
+      .finally(() => {});
   };
 };
