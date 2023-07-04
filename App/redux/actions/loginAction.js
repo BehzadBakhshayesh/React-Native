@@ -13,10 +13,6 @@ export const logOut = () => ({
 
 export const login = (data) => {
   return (dispatch) => {
-    // setTimeout(() => {
-    //   dispatch(loginAction('ttookkeenn'));
-    // }, 300);
-
     fetchClient({
       method: 'post',
       url: 'login',
