@@ -1,9 +1,9 @@
 import React from 'react';
 import { TextInput, View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
-import { login } from '@app/redux/actions/loginAction';
 import { useDispatch } from 'react-redux';
 import useField from '@app/hooks/useField';
+import { login } from '@app/redux/actions/AuthenticationActions';
 
 function SignInScreen() {
   const dispatch = useDispatch();

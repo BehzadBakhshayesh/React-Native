@@ -5,7 +5,7 @@ import SignInScreen from '@app/screens/SignInScreen';
 import Authorization from '@app/screens/Authorization';
 import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { loginAction } from '@app/redux/actions/loginAction';
+import { loginAction } from '@app/redux/actions/AuthenticationActions';
 
 const StackNavigator = () => {
   const dispatch = useDispatch();
@@ -17,8 +17,7 @@ const StackNavigator = () => {
   }, []);
 
   const Stack = createNativeStackNavigator();
-  const isLogin = useSelector((state) => state?.loginReducer);
-  console.log({ isLogin });
+  const isLogin = useSelector((state) => state?.authenticationReducer);
 
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
