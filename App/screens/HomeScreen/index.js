@@ -10,7 +10,7 @@ function HomeScreen() {
     dispatch(logOut());
   };
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles?.home}>
       <Text>Home</Text>
       <Button onPress={logout} title="logout" />
     </View>
@@ -20,3 +20,7 @@ HomeScreen.propTypes = {
   navigation: propTypes.object,
 };
 export default HomeScreen;
+
+const styles = StyleSheet.create({
+  home: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+});
