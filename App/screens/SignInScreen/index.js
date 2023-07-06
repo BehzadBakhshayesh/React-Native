@@ -3,7 +3,7 @@ import { TextInput, View, StyleSheet, Text, TouchableOpacity } from 'react-nativ
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import useField from '@app/hooks/useField';
-import { login } from '@app/redux/actions/AuthenticationActions';
+import { login } from '@app/redux/actions/authenticationActions';
 
 function SignInScreen() {
   const dispatch = useDispatch();
