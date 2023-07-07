@@ -13,6 +13,8 @@ import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { logOut } from '@app/redux/actions/authenticationActions';
 
+const data = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+
 function HomeScreen({ navigation }) {
   const dispatch = useDispatch();
   return (
@@ -26,7 +28,7 @@ function HomeScreen({ navigation }) {
         />
         <FlatList
           horizontal={true}
-          data={[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+          data={data}
           renderItem={({ item }) => (
             <View style={styles?.story} key={item?.index}>
               <Text style={styles?.text}>story</Text>
@@ -35,7 +37,7 @@ function HomeScreen({ navigation }) {
           keyExtractor={(item) => item.index}
         />
         <FlatList
-          data={[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+          data={data}
           renderItem={({ item }) => (
             <View style={styles?.box} key={item?.index}>
               <Text style={styles?.text}>post</Text>
@@ -56,8 +58,8 @@ const styles = StyleSheet.create({
   home: { flex: 1, paddingTop: StatusBar.currentHeight },
   scrollView: { marginHorizontal: 5 },
   story: {
-    width: 50,
-    height: 50,
+    width: 70,
+    height: 70,
     borderColor: '#000',
     borderWidth: 1,
     justifyContent: 'center',
