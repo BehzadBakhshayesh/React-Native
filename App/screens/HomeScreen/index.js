@@ -1,5 +1,14 @@
 import React from 'react';
-import { Button, Text, View, SafeAreaView, ScrollView, StyleSheet, StatusBar } from 'react-native';
+import {
+  Button,
+  Text,
+  View,
+  SafeAreaView,
+  ScrollView,
+  FlatList,
+  StyleSheet,
+  StatusBar,
+} from 'react-native';
 import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { logOut } from '@app/redux/actions/authenticationActions';
@@ -9,33 +18,21 @@ function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles?.home}>
       <ScrollView style={styles.scrollView}>
-        <View style={styles?.box}>
-          <Text>hello</Text>
-        </View>
-        <View style={styles?.box}>
-          <Text>hello</Text>
-        </View>
-        <View style={styles?.box}>
-          <Text>hello</Text>
-        </View>
-        <View style={styles?.box}>
-          <Text>hello</Text>
-        </View>
-        <View style={styles?.box}>
-          <Text>hello</Text>
-        </View>
-        <View style={styles?.box}>
-          <Text>hello</Text>
-        </View>
-        <View style={styles?.box}>
-          <Text>hello</Text>
-        </View>
-        <View style={styles?.box}>
-          <Text>hello</Text>
-        </View>
-        <View style={styles?.box}>
-          <Text>hello</Text>
-        </View>
+        <Button
+          onPress={() => {
+            dispatch(logOut());
+          }}
+          title="logout"
+        />
+        <FlatList
+          data={[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+          renderItem={({ item }) => (
+            <View style={styles?.box} key={item?.index}>
+              <Text>post</Text>
+            </View>
+          )}
+          keyExtractor={(item) => item.index}
+        />
       </ScrollView>
     </SafeAreaView>
   );
