@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '@app/screens/HomeScreen';
-import HomeScreen2 from '@app/screens/HomeScreen2';
+import { tabScreensList } from './tabScreensList';
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
-      <Tab.Screen name="HomeScreen" component={HomeScreen} />
-      <Tab.Screen name="Home2" component={HomeScreen2} />
+      {tabScreensList?.map((item) => (
+        <Fragment key={item?.key}>
+          <Tab.Screen {...item} />
+        </Fragment>
+      ))}
     </Tab.Navigator>
   );
 };
