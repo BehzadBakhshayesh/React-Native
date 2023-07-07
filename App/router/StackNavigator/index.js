@@ -28,11 +28,8 @@ const StackNavigator = () => {
     isAuth: state?.authenticationReducer,
     isLoading: state?.loadingReducer,
   }));
-  console.log({ isAuth, isLoading });
-  if (isLoading) {
-    return <SplashScreen />;
-  }
 
+  if (isLoading) return <SplashScreen />;
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {isAuth ? (
