@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { logOut } from '@app/redux/actions/authenticationActions';
 
-function HomeScreen() {
+function HomeScreen({ navigation }) {
   const dispatch = useDispatch();
   return (
     <View style={styles?.home}>
@@ -14,6 +14,12 @@ function HomeScreen() {
           dispatch(logOut());
         }}
         title="logout"
+      />
+      <Button
+        onPress={() => {
+          navigation?.navigate('DirectScreen');
+        }}
+        title="Direct"
       />
     </View>
   );

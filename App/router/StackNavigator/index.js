@@ -8,6 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { loginAction } from '@app/redux/actions/authenticationActions';
 import { loading } from '@app/redux/actions/loadingActions';
 import SplashScreen from '@app/screens/SplashScreen';
+import DirectScreen from '@app/screens/DirectScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,7 +35,10 @@ const StackNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {isAuth ? (
-        <Stack.Screen name="Root" component={TabNavigator} />
+        <>
+          <Stack.Screen name="Root" component={TabNavigator} />
+          <Stack.Screen name="DirectScreen" component={DirectScreen} />
+        </>
       ) : (
         <>
           <Stack.Screen name="Authorization" component={Authorization} />
