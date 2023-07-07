@@ -1,39 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TabNavigator from '@app/router/TabNavigator';
 import SignInScreen from '@app/screens/SignInScreen';
 import Authorization from '@app/screens/Authorization';
-import { useSelector, useDispatch } from 'react-redux';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { logOutAction, loginAction } from '@app/redux/actions/authenticationActions';
-import { loading } from '@app/redux/actions/loadingActions';
 import SplashScreen from '@app/screens/SplashScreen';
 import DirectScreen from '@app/screens/DirectScreen';
+import { useAuth } from '@app/hooks/useAuth';
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loading(true));
-    (async () => {
-      try {
-        const token = await AsyncStorage.getItem('token');
-        dispatch(loginAction(token));
-      } catch (e) {
-        dispatch(logOutAction());
-      } finally {
-        dispatch(loading(false));
-      }
-    })();
-  }, []);
+  const { isAuth, hasSplash } = useAuth();
 
-  const { isAuth, isLoading } = useSelector((state) => ({
-    isAuth: state?.authenticationReducer,
-    isLoading: state?.loadingReducer,
-  }));
-
-  if (isLoading) return <SplashScreen />;
+  if (hasSplash) return <SplashScreen />;
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {isAuth ? (

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { authenticationReducer } from './authenticationReducer';
-import { loadingReducer } from './loadingReducer';
+import { splashReducer } from './splashReducer';
 
-const reducers = combineReducers({ authenticationReducer, loadingReducer });
+const reducers = combineReducers({ authenticationReducer, splashReducer });
 
 export default reducers;

@@ -1,6 +1,6 @@
-export const loadingReducer = (state = false, action) => {
+export const splashReducer = (state = false, action) => {
   switch (action.type) {
-    case 'IS_LOADING':
+    case 'HAS_SPLSH':
       return action?.payload;
     default:
       return state;
