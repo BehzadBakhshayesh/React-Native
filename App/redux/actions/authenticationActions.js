@@ -1,6 +1,7 @@
 import { fetchClient } from '@app/service/fetchClient';
 import { setStorage } from '@app/tools/storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { loading } from './loadingActions';
 
 export const loginAction = (payload) => ({
   type: 'IS_LOGIN',
@@ -12,6 +13,7 @@ export const logOutAction = () => ({
 
 export const login = (data) => {
   return (dispatch) => {
+    dispatch(loading(true));
     fetchClient({
       method: 'post',
       url: 'login',
@@ -24,15 +26,23 @@ export const login = (data) => {
       .catch(() => {
         dispatch(logOutAction());
       })
-      .finally(() => {});
+      .finally(() => {
+        dispatch(loading(false));
+      });
   };
 };
 
 export const logOut = () => {
   return (dispatch) => {
-    AsyncStorage.removeItem('token').then(() => {
-      dispatch(logOutAction());
-      AsyncStorage.clear();
-    });
+    dispatch(loading(true));
+    AsyncStorage.removeItem('token')
+      .then(() => {
+        dispatch(logOutAction());
+        AsyncStorage.clear();
+      })
+      .catch(() => {})
+      .finally(() => {
+        dispatch(loading(false));
+      });
   };
 };
