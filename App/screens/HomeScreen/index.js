@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, View, StyleSheet } from 'react-native';
+import { Button, Text, View, SafeAreaView, ScrollView, StyleSheet, StatusBar } from 'react-native';
 import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { logOut } from '@app/redux/actions/authenticationActions';
@@ -7,21 +7,37 @@ import { logOut } from '@app/redux/actions/authenticationActions';
 function HomeScreen({ navigation }) {
   const dispatch = useDispatch();
   return (
-    <View style={styles?.home}>
-      <Text>Home</Text>
-      <Button
-        onPress={() => {
-          dispatch(logOut());
-        }}
-        title="logout"
-      />
-      <Button
-        onPress={() => {
-          navigation?.navigate('DirectScreen');
-        }}
-        title="Direct"
-      />
-    </View>
+    <SafeAreaView style={styles?.home}>
+      <ScrollView style={styles.scrollView}>
+        <View style={styles?.box}>
+          <Text>hello</Text>
+        </View>
+        <View style={styles?.box}>
+          <Text>hello</Text>
+        </View>
+        <View style={styles?.box}>
+          <Text>hello</Text>
+        </View>
+        <View style={styles?.box}>
+          <Text>hello</Text>
+        </View>
+        <View style={styles?.box}>
+          <Text>hello</Text>
+        </View>
+        <View style={styles?.box}>
+          <Text>hello</Text>
+        </View>
+        <View style={styles?.box}>
+          <Text>hello</Text>
+        </View>
+        <View style={styles?.box}>
+          <Text>hello</Text>
+        </View>
+        <View style={styles?.box}>
+          <Text>hello</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 HomeScreen.propTypes = {
@@ -30,5 +46,12 @@ HomeScreen.propTypes = {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-  home: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  home: { flex: 1, paddingTop: StatusBar.currentHeight },
+  scrollView: { marginHorizontal: 5 },
+  box: {
+    width: '100%',
+    height: 300,
+    borderColor: '#000',
+    borderWidth: 1,
+  },
 });

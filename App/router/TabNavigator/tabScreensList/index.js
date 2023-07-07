@@ -53,7 +53,7 @@ export const tabScreensList = [
     component: ProfileScreen,
     options: {
       tabBarIcon: ({ color, size }) => (
-        <MaterialCommunityIcons name="instagram" color={color} size={size} />
+        <MaterialCommunityIcons name="face-man" color={color} size={size} />
       ),
     },
   },
