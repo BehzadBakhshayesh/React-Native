@@ -25,10 +25,20 @@ function HomeScreen({ navigation }) {
           title="logout"
         />
         <FlatList
+          horizontal={true}
+          data={[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+          renderItem={({ item }) => (
+            <View style={styles?.story} key={item?.index}>
+              <Text style={styles?.text}>story</Text>
+            </View>
+          )}
+          keyExtractor={(item) => item.index}
+        />
+        <FlatList
           data={[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
           renderItem={({ item }) => (
             <View style={styles?.box} key={item?.index}>
-              <Text>post</Text>
+              <Text style={styles?.text}>post</Text>
             </View>
           )}
           keyExtractor={(item) => item.index}
@@ -45,10 +55,20 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   home: { flex: 1, paddingTop: StatusBar.currentHeight },
   scrollView: { marginHorizontal: 5 },
+  story: {
+    width: 50,
+    height: 50,
+    borderColor: '#000',
+    borderWidth: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   box: {
     width: '100%',
     height: 300,
     borderColor: '#000',
     borderWidth: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
