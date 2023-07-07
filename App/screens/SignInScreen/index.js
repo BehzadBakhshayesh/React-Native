@@ -21,6 +21,7 @@ function SignInScreen() {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.loginBtn}
+        disabled={!email?.value || !password?.value}
         onPress={() => {
           dispatch(login({ email: email?.value, password: password?.value }));
         }}
