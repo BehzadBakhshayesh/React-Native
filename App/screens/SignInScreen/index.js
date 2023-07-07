@@ -10,22 +10,20 @@ function SignInScreen() {
   const email = useField('charles.morris@reqres.in');
   const password = useField();
 
+  const disabled = !email?.value || !password?.value;
+  const onPress = () => {
+    dispatch(login({ email: email?.value, password: password?.value }));
+  };
+
   return (
     <View style={styles?.wrapper}>
       <Text style={styles.title}>Instagram</Text>
-
       <TextInput placeholder="Username" style={styles.input} {...email} />
       <TextInput placeholder="Password" style={styles.input} {...password} secureTextEntry />
       <TouchableOpacity>
         <Text style={styles.forgotText}>Forgot Password?</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.loginBtn}
-        disabled={!email?.value || !password?.value}
-        onPress={() => {
-          dispatch(login({ email: email?.value, password: password?.value }));
-        }}
-      >
+      <TouchableOpacity style={styles.loginBtn} disabled={disabled} onPress={onPress}>
         <Text style={styles.loginText}>LOGIN </Text>
       </TouchableOpacity>
     </View>
