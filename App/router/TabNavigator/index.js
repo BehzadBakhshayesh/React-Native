@@ -5,8 +5,10 @@ import { tabScreensList } from './tabScreensList';
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
+  const screenOptions = { headerShown: false, tabBarShowLabel: false };
+
   return (
-    <Tab.Navigator screenOptions={{ headerShown: false }}>
+    <Tab.Navigator screenOptions={screenOptions}>
       {tabScreensList?.map((item) => (
         <Fragment key={item?.key}>
           <Tab.Screen {...item} />
