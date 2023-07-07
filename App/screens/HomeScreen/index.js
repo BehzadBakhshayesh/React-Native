@@ -6,13 +6,15 @@ import { logOut } from '@app/redux/actions/authenticationActions';
 
 function HomeScreen() {
   const dispatch = useDispatch();
-  const logout = async () => {
-    dispatch(logOut());
-  };
   return (
     <View style={styles?.home}>
       <Text>Home</Text>
-      <Button onPress={logout} title="logout" />
+      <Button
+        onPress={() => {
+          dispatch(logOut());
+        }}
+        title="logout"
+      />
     </View>
   );
 }

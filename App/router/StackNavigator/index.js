@@ -12,11 +12,11 @@ import SplashScreen from '@app/screens/SplashScreen';
 const StackNavigator = () => {
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(loading(true));
     (async () => {
       try {
         const token = await AsyncStorage.getItem('token');
         dispatch(loginAction(token));
-        dispatch(loading(true));
       } finally {
         dispatch(loading(false));
       }
@@ -26,9 +26,9 @@ const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
   const { isAuth, isLoading } = useSelector((state) => ({
     isAuth: state?.authenticationReducer,
-    isLoading: state?.loadinReducer,
+    isLoading: state?.loadingReducer,
   }));
-
+  console.log({ isAuth, isLoading });
   if (isLoading) {
     return <SplashScreen />;
   }
