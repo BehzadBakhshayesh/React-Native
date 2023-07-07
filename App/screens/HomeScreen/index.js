@@ -28,6 +28,12 @@ function HomeScreen({ navigation }) {
           }}
           title="logout"
         />
+        <Button
+          onPress={() => {
+            navigation?.navigate('DirectScreen');
+          }}
+          title="Direct"
+        />
         <FlatList
           data={data}
           renderItem={(item) => <Story />}
