@@ -9,6 +9,8 @@ import { loginAction } from '@app/redux/actions/authenticationActions';
 import { loading } from '@app/redux/actions/loadingActions';
 import SplashScreen from '@app/screens/SplashScreen';
 
+const Stack = createNativeStackNavigator();
+
 const StackNavigator = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -23,7 +25,6 @@ const StackNavigator = () => {
     })();
   }, []);
 
-  const Stack = createNativeStackNavigator();
   const { isAuth, isLoading } = useSelector((state) => ({
     isAuth: state?.authenticationReducer,
     isLoading: state?.loadingReducer,
