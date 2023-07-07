@@ -2,14 +2,14 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import propTypes from 'prop-types';
 
-function HomeScreen2({ navigation }) {
+function ExploreScreen({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>HomeScreen2</Text>
+      <Text>ExploreScreen</Text>
     </View>
   );
 }
-HomeScreen2.propTypes = {
+ExploreScreen.propTypes = {
   navigation: propTypes.object,
 };
-export default HomeScreen2;
+export default ExploreScreen;
