@@ -1,10 +1,10 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, StyleSheet } from 'react-native';
 import propTypes from 'prop-types';
 
 function DirectScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles?.wrapper}>
       <Text>DirectScreen</Text>
       <Button
         onPress={() => {
@@ -19,3 +19,7 @@ DirectScreen.propTypes = {
   navigation: propTypes.object,
 };
 export default DirectScreen;
+
+const styles = StyleSheet.create({
+  wrapper: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+});
