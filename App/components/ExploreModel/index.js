@@ -3,33 +3,21 @@ import { Text, View, Dimensions, StyleSheet } from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 
-const ExploreModel = () => {
+const ExploreModel = ({ data }) => {
+  const isOdd = data & 1;
+
+  const itemStyle = styles?.item;
+  const reelsStyle = { ...itemStyle, height: (2 / 3) * windowWidth };
   return (
     <View style={styles?.wrapper}>
-      <View style={{ ...styles?.item, height: (2 / 3) * windowWidth }}>
-        <Text>1</Text>
-      </View>
-      <View style={styles?.item}>
-        <Text>2</Text>
-      </View>
-      <View style={styles?.item}>
-        <Text>3</Text>
-      </View>
-      <View style={styles?.item}>
-        <Text>4</Text>
-      </View>
-      <View style={styles?.item}>
-        <Text>5</Text>
-      </View>
-      <View style={styles?.item}>
-        <Text>6</Text>
-      </View>
-      <View style={styles?.item}>
-        <Text>7</Text>
-      </View>
-      <View style={styles?.item}>
-        <Text>8</Text>
-      </View>
+      <View style={isOdd ? itemStyle : reelsStyle}></View>
+      <View style={itemStyle}></View>
+      <View style={itemStyle}></View>
+      <View style={itemStyle}></View>
+      <View style={itemStyle}></View>
+      <View style={itemStyle}></View>
+      <View style={isOdd ? reelsStyle : itemStyle}></View>
+      <View style={itemStyle}></View>
     </View>
   );
 };
@@ -41,7 +29,6 @@ const styles = StyleSheet.create({
     width: windowWidth,
     height: windowWidth,
     display: 'flex',
-    flexDirection: 'row',
     flexWrap: 'wrap',
   },
   item: {

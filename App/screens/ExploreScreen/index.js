@@ -12,7 +12,7 @@ function ExploreScreen({ navigation }) {
       <ScrollView>
         {data?.map((item) => (
           <Fragment key={item}>
-            <ExploreModel />
+            <ExploreModel data={item} />
           </Fragment>
         ))}
       </ScrollView>
