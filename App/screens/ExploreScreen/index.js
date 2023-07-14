@@ -5,7 +5,7 @@ import propTypes from 'prop-types';
 function ExploreScreen({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>ExploreScreen</Text>
+      <Text>Explore Screen</Text>
     </View>
   );
 }

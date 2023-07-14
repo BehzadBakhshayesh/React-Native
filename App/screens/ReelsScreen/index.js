@@ -7,7 +7,7 @@ import { logOut } from '@app/redux/actions/authenticationActions';
 function ReelsScreen() {
   return (
     <View style={styles?.reels}>
-      <Text>ReelsScreen</Text>
+      <Text>Reels Screen</Text>
     </View>
   );
 }

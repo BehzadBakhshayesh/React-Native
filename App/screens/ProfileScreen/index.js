@@ -7,7 +7,7 @@ function ProfileScreen() {
   const dispatch = useDispatch();
   return (
     <View style={styles?.profile}>
-      <Text>ProfileScreen</Text>
+      <Text>Profile Screen</Text>
     </View>
   );
 }

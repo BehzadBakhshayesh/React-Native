@@ -1,24 +1,33 @@
-import React from 'react';
-import {
-  Button,
-  Text,
-  View,
-  SafeAreaView,
-  ScrollView,
-  FlatList,
-  StyleSheet,
-  StatusBar,
-} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Button, SafeAreaView, ScrollView, FlatList, StyleSheet, StatusBar } from 'react-native';
 import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+// import axios from 'axios';
 import { logOut } from '@app/redux/actions/authenticationActions';
 import Post from '@app/components/Post';
 import Story from '@app/components/Story';
 
 const data = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+const photosUrl = 'https://api.slingacademy.com/v1/sample-data/photos';
 
 function HomeScreen({ navigation }) {
   const dispatch = useDispatch();
+  // const [storyPhotos, setStoryPhotos] = useState([]);
+  // console.log({ storyPhotos });
+
+  // useEffect(() => {
+  //   axios({
+  //     method: 'get',
+  //     url: photosUrl,
+  //   })
+  //     .then((res) => {
+  //       console.log(res?.photos);
+  //       setStoryPhotos({ res });
+  //     })
+  //     .catch(() => {})
+  //     .finally(() => {});
+  // }, []);
+
   return (
     <SafeAreaView style={styles?.home}>
       <ScrollView style={styles.scrollView}>
@@ -34,6 +43,7 @@ function HomeScreen({ navigation }) {
           }}
           title="Direct"
         />
+
         <FlatList
           data={data}
           renderItem={(item) => <Story />}

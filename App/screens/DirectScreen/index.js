@@ -5,7 +5,7 @@ import propTypes from 'prop-types';
 function DirectScreen({ navigation }) {
   return (
     <View style={styles?.wrapper}>
-      <Text>DirectScreen</Text>
+      <Text>Direct Screen</Text>
       <Button
         onPress={() => {
           navigation?.navigate('HomeScreen');
