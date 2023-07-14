@@ -9,7 +9,6 @@ function ExploreScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.wrapper}>
       <TextInput placeholder="Search" style={styles.input} />
-
       <ScrollView>
         <FlatList
           data={data}

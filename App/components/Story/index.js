@@ -16,10 +16,10 @@ export default Story;
 
 const styles = StyleSheet.create({
   story: {
-    width: 70,
-    height: 70,
-    borderColor: '#000',
-    borderWidth: 1,
+    width: 80,
+    height: 80,
+    borderColor: '#CCC',
+    borderWidth: 2,
     borderRadius: 50,
     margin: 10,
     justifyContent: 'center',

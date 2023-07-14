@@ -1,11 +1,13 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, Dimensions, StyleSheet } from 'react-native';
 import propTypes from 'prop-types';
+
+const windowWidth = Dimensions.get('window').width;
 
 const Post = () => {
   return (
     <View style={styles?.post}>
-      <Text>post</Text>
+      <Text style={styles?.text}>Post</Text>
     </View>
   );
 };
@@ -16,11 +18,13 @@ export default Post;
 
 const styles = StyleSheet.create({
   post: {
-    width: '100%',
-    height: 300,
-    borderColor: '#000',
+    width: windowWidth,
+    height: windowWidth,
+    borderColor: '#FFF',
     borderWidth: 1,
+    backgroundColor: '#CCC',
     justifyContent: 'center',
     alignItems: 'center',
   },
+  text: { color: '#fff' },
 });

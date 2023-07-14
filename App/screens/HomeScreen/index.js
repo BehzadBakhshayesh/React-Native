@@ -62,5 +62,5 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   home: { flex: 1, paddingTop: StatusBar.currentHeight },
-  scrollView: { marginHorizontal: 5 },
+  scrollView: {},
 });
