@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { SafeAreaView, ScrollView, TextInput, StatusBar, StyleSheet } from 'react-native';
+import { SafeAreaView, ScrollView, FlatList, TextInput, StatusBar, StyleSheet } from 'react-native';
 import propTypes from 'prop-types';
 import ExploreModel from '@app/components/ExploreModel';
 
@@ -9,12 +9,13 @@ function ExploreScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.wrapper}>
       <TextInput placeholder="Search" style={styles.input} />
+
       <ScrollView>
-        {data?.map((item) => (
-          <Fragment key={item}>
-            <ExploreModel data={item} />
-          </Fragment>
-        ))}
+        <FlatList
+          data={data}
+          renderItem={(item) => <ExploreModel data={item} />}
+          keyExtractor={(item) => item}
+        />
       </ScrollView>
     </SafeAreaView>
   );

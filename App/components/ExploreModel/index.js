@@ -4,10 +4,10 @@ import { Text, View, Dimensions, StyleSheet } from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 
 const ExploreModel = ({ data }) => {
-  const isOdd = data & 1;
-
+  const isOdd = data?.item & 1;
   const itemStyle = styles?.item;
   const reelsStyle = { ...itemStyle, height: (2 / 3) * windowWidth };
+
   return (
     <View style={styles?.wrapper}>
       <View style={isOdd ? itemStyle : reelsStyle}></View>
