@@ -8,7 +8,7 @@ import { login } from '@app/redux/actions/authenticationActions';
 function SignInScreen() {
   const dispatch = useDispatch();
   const email = useField('charles.morris@reqres.in');
-  const password = useField();
+  const password = useField('123');
 
   const disabled = !email?.value || !password?.value;
   const onPress = () => {
